@@ -1,0 +1,339 @@
+<!-- Declaración del tipo de documento HTML, siempre en la 1ª línea -->
+<!DOCTYPE html>
+<!-- Elemento html. Atributos lenguaje y dirección de lectura -->
+<html lang="es">
+<!-- Cabecera oculta del documento web que solo ven los robots -->
+
+<head>
+	<!-- Juego de caracteres de casi todos los idiomas humanos (incluidos ñ, tildes ...) -->
+	<meta charset="utf-8" />
+	<!-- Escala inicial y renderizado _responsive_ por el ancho del dispositivo -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<!-- Compatibilidad con Microsoft Explorer -->
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<!-- Indéxame NO y sígueme NO -->
+	<meta name="robots" content="noIndex, noFollow" />
+	<!-- Breve descripción del sitio que se verá en los resultados de búsqueda -->
+	<meta name="description"
+		content="Sitio web de prueba elaborado en el curso de Confección y Publicación de Páginas Web (IFCD0110). Unidad Formativa UF1303, Elaboración de hojas de estilos" />
+	<!-- Ruta al favicon -->
+	<link rel="shortcut icon" href="assets/img/favicon.ico" type="image/vnd.microsoft.icon" />
+	<!-- Utilícese una hoja de estilos Normalize -->
+	<link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
+	<!-- Ruta a las hojas de estilos -->
+	<link rel="stylesheet" href="assets/css/tipografia.css">
+	<link rel="stylesheet" href="assets/css/visibilidad.css">
+	<!-- <link rel="stylesheet" href="assets/css/galeria.css"> -->
+	<!-- <link rel="stylesheet" href="assets/css/galeria2.css"> -->
+	<link rel="stylesheet" href="assets/css/galeria3.css">
+	<link rel="stylesheet" href="assets/css/carrousel.css">
+	<link rel="stylesheet" href="assets/css/stilos.css" />
+	<!-- Título de la pestaña del navegador -->
+	<title>UF1303 | Elaboración de hojas de estilos</title>
+</head>
+
+<body>
+	<!-- El header es la cabecera de la página web lleva el único encabezado h1 de la página -->
+	<header class="pechado">
+		<a href="index.html" title="Página principal">
+			<figure class="logo"></figure>
+			<h1 class="pechado">Elaboración de hojas de estilos (UF1303)</h1>
+		</a>
+		<!-- Slogan -->
+		<p class="pechado">Curso de Confección Publicación de Páginas Web</p>
+	</header>
+	<nav class="pechado">
+		<h2 class="pechado">Menú Principal</h2>
+		<input id="icon-menu" name="icon-menu" type="checkbox">
+		<label for="icon-menu" class="icon-menu" aria-label="Abrir/Pechar">Menú</label>
+		<ul>
+			<li>
+				<a href="#">Inicio</a>
+			</li>
+			<li><a href="#">Temas</a>
+				<ul>
+					<li>
+						<a href="#">Tema 1</a>
+					</li>
+					<li>
+						<a href="#">Tema 2</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">Nosotros</a>
+			</li>
+			<li>
+				<a href="#">Contacto</a>
+			</li>
+		</ul>
+	</nav>
+	<main>
+		<section class="tema textos agua justify">
+			<header class="portada">
+				<h2>Imágenes en CSS</h2>
+			</header>
+			<article>
+				<h3>Referencias teóricas</h3>
+				<p><strong>Referencias</strong>: </p>
+				<ul>
+					<li>
+						<a href="assets/pdf/UF1303_Elaboracion-hojas-de-estilo.pdf" target="_blank">
+							UF1303 - Elaboración de hojas de estilos (pdf)
+						</a>
+					</li>
+					<li>
+						<a href="assets/pdf/CSS_Manual_rapido.pdf" target="_blank">
+							Manual Rápido de CSS (pdf)
+						</a>
+					</li>
+					<li>
+						<a href="assets/pdf/CSS_posicionamiento_relativo_absoluto.pdf" target="_blank">Posicionamiento
+							CSS relativo y absoluto (pdf)</a>
+					</li>
+					<li>
+						<a href="assets/pdf/CSS_Guia_ref_rap.pdf" target="_blank">
+							Guía de referencia rápida CSS (pdf)
+						</a>
+					</li>
+					<li>
+						<a href="https://developer.mozilla.org/es/docs/Web/CSS/Reference/Properties/background-image"
+							target="_blank">
+							background-image | MDN Web Docs (moz://a)
+						</a>
+					</li>
+					<li>
+						<a href="https://lenguajecss.com/css/efectos/filtros-css/" target="_blank">
+							Filtros CSS3 | CSS - Tricks
+						</a>
+					</li>
+				</ul>
+			</article>
+			<article>
+				<h3>Imágenes en CSS</h3>
+				<p>
+					La propiedad background-image se emplea para establecer la imagen de fondo de cada elemento. La
+					imagen se muestra en la zona que ocupan el contenido y el relleno del elemento, justo hasta su
+					borde.
+				</p>
+				<p>
+					Para indicar la imagen que se muestra como fondo de un elemento, se utiliza una URL. Los navegadores
+					no restringen el tipo de URL que se pueden utilizar, por lo que pueden ser URL externas/internas y
+					URL relativas/absolutas.
+				</p>
+				<p>
+					La URL de la imagen que se quiere mostrar se incluye dentro de los paréntesis de la palabra url().
+					De forma opcional, el valor de la URL se puede encerrar entre comillas simples o entre comillas
+					dobles.
+				</p>
+				<p>
+					Por defecto el CSS repite ( background-repeat ) la imagen de fondo ( background-image ) en todas las
+					direcciones, tantas veces como fuera necesario, hasta cubrir completamente el elemento. Es
+					exactamente lo que hacen los patrones. Si la imagen es más grande de lo necesario podemos utilizar
+					la propiedad background-sizestar para establecer el tamaño de la imagen que se repite
+				</p>
+				<h3>Elementos SVG</h3>
+				<p>
+					Si los elementos svg están guardados en documentos .svg externos podemos utilizarlos como imagen de
+					fondo de la misma manera como lo hacemos con las imágenes jpg, png, gif:
+				</p>
+			</article>
+
+			<article class="galeria-flex">
+				<h2>Galería de imágenes</h2>
+				<p>Parrilla de imágenes con Flexbox</p>
+
+				<ul class="galeria">
+					<li>
+						<figure class="diapositiva-1">
+							<figcaption>Foto 1</figcaption>
+						</figure>
+					</li>
+
+					<li>
+						<figure class="diapositiva-2">
+							<figcaption>Foto 2</figcaption>
+						</figure>
+					</li>
+
+					<li>
+						<figure class="diapositiva-3">
+							<figcaption>Foto 3</figcaption>
+						</figure>
+					</li>
+
+					<li>
+						<figure class="diapositiva-4">
+							<figcaption>Foto 4</figcaption>
+						</figure>
+					</li>
+
+					<li>
+						<figure class="diapositiva-5">
+							<figcaption>Foto 5</figcaption>
+						</figure>
+					</li>
+				</ul>
+			</article>
+
+			<article class="galeria-animada">
+				<h2>Galería de imágenes</h2>
+				<p>Animación carrousel de imágenes</p>
+
+				<ul class="carrousel">
+					<li>
+						<figure class="diapositiva-1">
+							<figcaption>Ciudad 1</figcaption>
+						</figure>
+					</li>
+
+					<li>
+						<figure class="diapositiva-2">
+							<figcaption>Ciudad 2</figcaption>
+						</figure>
+					</li>
+
+					<li>
+						<figure class="diapositiva-3">
+							<figcaption>Ciudad 3</figcaption>
+						</figure>
+					</li>
+
+					<li>
+						<figure class="diapositiva-4">
+							<figcaption>Ciudad 4</figcaption>
+						</figure>
+					</li>
+
+					<li>
+						<figure class="diapositiva-5">
+							<figcaption>Ciudad 5</figcaption>
+						</figure>
+					</li>
+				</ul>
+			</article>
+		</section>
+	</main>
+	<footer class="pechado">
+		<section class="contentinfo justify">
+			<h2>Elaboración de hojas de estilos(UF1303)</h2>
+			<div role="group" class="justify">
+				<address>
+					<ul>
+						<li>
+							<a href="https://maps.app.goo.gl/4BbFd7Q5vqgTfPek6"
+								title="Ver onde estamos e tódalas formas de contacto" class="footer" target="_blank">
+								<span class="icon-location" aria-hidden="true"></span>
+								<span>221B Baker St, London NW1 6XE, Reino Unido</span>
+							</a>
+						</li>
+						<li>
+							<a href="mailto:ifcd0110@gmx.com" title="Enviar un correo dende este dispositivo"
+								class="footer">
+								<span class="icon-mail" aria-hidden="true"></span>
+								<span>ifcd0110@gmx.com</span>
+							</a>
+						</li>
+						<li>
+							<a href="tel:+3498222333" title="Chamar dende este dispositivo" class="footer">
+								<span class="icon-telefono" aria-hidden="true"></span>
+								<span>982 222 333</span>
+							</a>
+						</li>
+						<li>
+							<a href="tel:+34666777888" title="Chamar xa dende este dispositivo" class="footer">
+								<span class="icon-movil" aria-hidden="true"></span>
+								<span>666 777 888</span>
+							</a>
+						</li>
+					</ul>
+				</address>
+
+				<nav class="rss">
+					<ul class="social">
+						<li class="svg-icon rss">
+							<a href="#" target="_blank" title="Canle RSS de artículos CSS"
+								class="footer rss cross-centro">
+								<span class="circulo">
+									<svg role="img" version="1.1" xmlns="http://www.w3.org/2000/svg"
+										xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" xml:space="preserve"
+										width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"
+										aria-labelledby="rssTitle--footer rssDesc--footer" id="rss--footer">
+										<title id="rssTitle--footer">Feed </title>
+										<desc id="rssDesc--footer">A icona popularmente reconocida para a Sindicación de
+											contenidos - RSS - é un punto na parte inferior esquerda máis dous cuartos
+											de círculo simulando a emisión de ondas de radio
+										</desc>
+										<style>
+											#rss--footer {
+												background: none;
+												-webkit-transform: scale(0.8);
+												transform: scale(0.8);
+											}
+										</style>
+										<path
+											d="M6.503 20.752c0 1.794-1.456 3.248-3.251 3.248-1.796 0-3.252-1.454-3.252-3.248 0-1.794 1.456-3.248 3.252-3.248 1.795.001 3.251 1.454 3.251 3.248zm-6.503-12.572v4.811c6.05.062 10.96 4.966 11.022 11.009h4.817c-.062-8.71-7.118-15.758-15.839-15.82zm0-3.368c10.58.046 19.152 8.594 19.183 19.188h4.817c-.03-13.231-10.755-23.954-24-24v4.812z">
+										</path>
+									</svg>
+								</span>
+								<span class="texto">Artículos CSS vía RSS</span>
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+
+			<a href="#" target="_blank" title="Ver o sitio web de UF1303" class="no-border pattern abcenter">
+				<figure aria-label="Logo"></figure>
+			</a>
+		</section>
+
+		<section class="footer__pie cross-fin">
+			<h2 class="pechado">Menú á documentación legal e dereiros de usuarios</h2>
+
+			<ul class="">
+				<li class="validator cross-centro">
+					<a href="https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fwebusable.github.io%2Fuf1303%2Findex.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=es"
+						target="_blank" title="Esta páxina web é un documento CSS versión 3 + SVG válido!"
+						class="no-border">
+						<figure style="background-image:url(/uf1303/assets/svg/w3c/css.svg);" class="w3c"
+							aria-label="Selo de Calidade Web: CSS 3 + SVG válido!"></figure>
+					</a>
+				</li>
+				<li class="validator cross-centro">
+					<a href="https://wave.webaim.org/report#/https://webusable.github.io/uf1303/index.html"
+						target="_blank"
+						title="Esta páxina web ten superado o nivel Triple-A de conformidad segundo as Pautas de Accesibilidade a Contenido Web 2.0 do Organismo W3C WAI WCAG 2.0"
+						class="no-border">
+						<figure style="background-image: url(/uf1303//assets/svg/w3c/wcag.svg);"
+							aria-label="Selo de Calidade Web: Superado WCAG 2.0 (Nivel AAA)! " class="w3c"></figure>
+					</a>
+				</li>
+				<li class="validator cross-centro">
+					<a href="https://html5.validator.nu/?doc=https%3A%2F%2Fwebusable.github.io%2Fuf1303%2Findex.html&showimagereport=yes&showsource=yes"
+						target="_blank"
+						title="Este sitio web está desenrrolada en estructura e semántica HTML5 e con animacións i estilos CSS3"
+						class="no-border">
+						<figure style="background-image: url(/uf1303/assets/svg/w3c/html5.svg);"
+							aria-label="Selo de Calidade Web: Tecnoloxías HTML5, Semántica, CSS3, Responsive, Multimedia e con conexión offline por caché HTML5"
+							class="xhtml5"></figure>
+					</a>
+				</li>
+
+				<li class="cross-centro legal">
+					<a href="#" title="Ler o Aviso Legal e a nosa Política de Privacidade" target="_blank"
+						class="footer">Privacidade e Aviso Legal</a>
+				</li>
+				<li class="cross-centro legal">
+					<a href="#" title="Ler os Termos de Uso" target="_blank" class="footer">Termos de Uso</a>
+				</li>
+				<li class="cross-centro legal">
+					<a href="#" title="Ler a nosa Política de Protección de Datos Persoais" target="_blank"
+						class="footer">Protección de Datos Persoais</a>
+				</li>
+			</ul>
+		</section>
+	</footer>
+</body>
+
+</html>
