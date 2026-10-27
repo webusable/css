@@ -1,0 +1,230 @@
+@charset "UTF-8";
+:root {
+    --bg-body: #fefefe;
+    --bg-header: #0000cd;
+    --bg-footer: #000000;
+
+    --color-texto: #666666;
+    --color-h2: #ffffff;
+    --color-h3: #0000cd;
+
+    --color-a: #fff;
+    --color-a--hover: #ffff00;
+
+    --img-figure: url("https://pixfill.dev/640x426/0000cd/ffffff");
+}
+
+/*
+    Referencia de colores:
+        https://htmlcolorcodes.com/es/nombres-de-los-colores/
+
+    Referencia de imágenes de muestra 
+        https://pixfill.dev/
+*/
+
+/* 
+    B.  (0.9 puntos) 
+
+    Utilizaráse unha folla de estilos tipo normalize moderna (0.1 puntos)
+
+    O h1, os encabezados do menu principal e do pé de páxina non serán visbles na páxina web (0.1 puntos)  
+    As listas do menú principal e do footer non terán estilos típicos de listas (0.1 puntos)  
+    as ligazóns non terán o típico subraiado (0.1 puntos)  
+    A cabeceira da sección e o pé de páxina terán un espaciado interior ate o contido de 5rem arriba e abaixo e do 10% nos laterais (0.1 puntos)
+    Os artigos do sitio tamén terán o 10% de espacio lateral ate os bordes da páxina web (0.1 puntos)
+    O texto do encabezado da sección terá o dobre do tamaño da letra do elemento raíz da páxina HTML (0.1 puntos)
+    O texto do encabezado da sección estará centrado (0.1 puntos)
+    O texto dos encabezados dos artigos teran 1.5 o tamaño da letra do elemento raíz da páxina HTML (0.1 puntos)
+*/
+
+header h1,
+nav h2,
+footer h2 {
+    display: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+nav.principal ul,
+body > footer ul {
+    list-style: none;
+}
+
+body > footer,
+main section header {
+    padding: 5rem;
+}
+
+main section article {
+    padding: 0 10%;
+}
+
+section h2 {
+    font-size: 2rem;
+    text-align: center;
+}
+
+article h3 {
+    font-size: 1.5rem;
+}
+
+/* 
+    B.  (0.5 puntos) 
+
+    O color de fondo da páxina web será RGB(254, 254, 254) (0.1 puntos)  
+    O color de fondo do footer negro (0.1 puntos) 
+    O color da cabeceira da sección principal será de color 'MediumBlue' (0.1 puntos) 
+    O encabezado da sección será branco (0.1 puntos) 
+    os encabezados dos articles serán de color 'MediumBlue' (0.1 puntos) 
+*/
+
+body {
+    background-color: var(--bg-body);
+}
+
+footer {
+    background-color: var(--bg-footer);
+}
+
+section {
+    & header {
+        background-color: var(--bg-header);
+
+        & h2 {
+            color: var(--color-h2);
+        }
+    }
+
+    & article {
+        & h3 {
+            color: var(--color-h3);
+        }
+    }
+}
+
+/* 
+    B.  (0.3 puntos) 
+
+    Os textos serán de color RGB(102, 102, 102) (0.1 puntos)
+    Os enlaces serán de color 'Brown' (0.1 puntos)
+        que pasarán a color 'MediumBlue' ao pasar o rato por riba (0.1 puntos)
+*/
+
+p,
+li {
+    color: var(--color-texto);
+}
+
+a {
+    color: var(--color-a);
+
+    &:hover {
+        color: var(--color-a--hover);
+    }
+}
+
+/*
+    B. (0.8 puntos)
+
+    O contenedor dos ítems da lista do menu pricipal será flexible (0.1 puntos)
+    Os item saltaán á liña seguinte cando non collan no espazo dispoñible (0.1 puntos)
+    e ordenará os ítems ao centro (0.1 puntos)
+
+    Os enlaces: 
+        seran bloques en liña (0.1 puntos)
+        terán un recheo de 1em arriba e abaixo e dous nos laterais (0.1 puntos)
+        terán un espacio entre eles 0.5em (0.1 puntos)
+        terán o mesmo color de fondo que a cabeceira da sección (0.1 puntos)
+        terán reondeadas as esquinas a 4px (0.1 puntos)
+*/
+
+nav.principal ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    li a {
+        display: inline-block;
+        padding: 1em 2em;
+        margin: 0.5em;
+        background-color: var(--bg-header);
+        border-radius: 4px;
+    }
+}
+
+/*
+    (0.5 puntos)
+    Cando o ancho do dispositivo chegue ou supere os 640 px 
+        O espazo lateral dos artigos subirá a un 15%
+        E a cabeceira da sección e o pé de páxina tamén terán un espaciado 
+        do 15% nos laterais (0.1 puntos)
+*/
+
+@media (min-width: 640px) {
+    article {
+        padding-left: 15%;
+        padding-right: 15%;
+    }
+
+    section header,
+    footer {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+}
+
+/*
+    Mostra una imaxe de fondo no before do elemento <figure> do documento HTML (0.5 puntos)
+        O elemento figure terá unha cor de fondo negra 
+        A imaxe de fondo será única, estará centrada e cubrirá por completo o elemento
+
+
+    O artigo contenedor terán un margín inferior do 10% (0.1 puntos)
+    O elemento figure:
+        terá un ancho da metade do artigo (0.1 puntos)
+        estará centrado (0.1 puntos)
+        terá unha relación de aspecto de 3:2 (0.1 puntos)
+
+    A imaxe de fondo será de 640x426 pixeles co color de fondo coma o da cabeceira da sección (0.1 puntos)
+        (p.ex. de https://pixfill.dev)
+*/
+
+/* (0.5 puntos) */
+figure.av-before {
+    background-color: #000;
+    position: relative;
+
+    &::before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+}
+
+article.av-imaxe {
+    /* 0.1 puntos */
+    margin-bottom: 10%;
+
+    figure {
+        /* 0.1 puntos */
+        width: 50%;
+        /* 0.1 puntos */
+        margin: 0 auto;
+        /* 0.1 puntos */
+        aspect-ratio: 3/2;
+
+        /* 0.1 puntos */
+        &::before {
+            background-image: var(--img-figure);
+        }
+    }
+}
