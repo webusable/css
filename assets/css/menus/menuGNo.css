@@ -1,0 +1,156 @@
+/* =========================================================
+   1. RESET BÁSICO Y ESTILOS ACCESIBLES
+   ========================================================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        sans-serif;
+    background-color: #f4f6f8;
+}
+
+/* Ocultar elementos visualmente para lectores de pantalla */
+.pechado {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Contenedor principal de la navegación */
+nav.principal {
+    background-color: #1b365d;
+    padding: 0.75rem 1.5rem;
+    position: relative;
+}
+
+/* Ocultar el checkbox nativo */
+#icon-menu {
+    display: none;
+}
+
+/* =========================================================
+   2. MOBILE-FIRST (Estilos por defecto para móvil)
+   ========================================================= */
+
+/* Label / Botón de activación del menú */
+.icon-menu {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Inserción del SVG vía background-image directo */
+.icon-menu::before {
+    content: "";
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-image: url("../svg/iconos/icon-paperPlane.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 0.3s ease;
+}
+
+/* Menú oculto en móvil por defecto */
+nav.principal > ul {
+    list-style: none;
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+    background-color: #132744;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+/* Enlaces del menú */
+nav.principal a {
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.85rem 1.25rem;
+    transition: background-color 0.2s ease;
+}
+
+nav.principal a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Submenús desplegables en móvil */
+nav.principal ul ul {
+    list-style: none;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding-left: 1rem;
+}
+
+/* Mostrar menú móvil al activar el checkbox */
+#icon-menu:checked ~ ul {
+    display: flex;
+}
+
+/* Rotación o animación del icono al abrir (opcional) */
+#icon-menu:checked ~ .icon-menu::before {
+    transform: rotate(180deg);
+}
+
+/* =========================================================
+   3. PANTALLAS GRANDES (Escritorio / Tablet >= 769px)
+   ========================================================= */
+@media screen and (min-width: 769px) {
+    /* Ocultar botón de menú en escritorio */
+    .icon-menu {
+        display: none;
+    }
+
+    /* Mostrar menú horizontalmente */
+    nav.principal > ul {
+        display: flex !important;
+        flex-direction: row;
+        width: auto;
+        margin-top: 0;
+        background-color: transparent;
+    }
+
+    nav.principal > ul > li {
+        position: relative;
+    }
+
+    /* Submenú Flotante Pure CSS */
+    nav.principal ul ul {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: 180px;
+        background-color: #1b365d;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        padding-left: 0;
+        display: none;
+        z-index: 100;
+        border-radius: 0 0 6px 6px;
+    }
+
+    /* Desplegar submenú con Hover y Focus para teclado */
+    nav.principal > ul > li:hover > ul,
+    nav.principal > ul > li:focus-within > ul {
+        display: block;
+    }
+}

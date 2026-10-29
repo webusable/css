@@ -1,0 +1,79 @@
+/* 1. Reset básico de la lista */
+.galeria {
+  list-style: none; /* Elimina los puntos/viñetas */
+  padding: 0;
+  margin: 0;
+
+  /* 2. Configuración del Contenedor Flex */
+  display: flex;
+  flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente fila si no caben */
+  justify-content: center; /* Centra horizontalmente las tarjetas */
+  gap: 20px; /* Espaciado uniforme entre los elementos (filas y columnas) */
+}
+
+/* 3. Configuración de cada elemento hijo (li) */
+.galeria > li {
+  /*
+    flex: grow shrink basis;
+    - flex-grow: 1 (crece para llenar el espacio disponible)
+    - flex-shrink: 1 (se encoge si es necesario)
+    - flex-basis: 250px (tamaño base/ideal antes de estirarse)
+  */
+  flex: 1 1 250px;
+  max-width: 350px; /* Tamaño máximo para que no se vuelvan gigantes en pantallas muy anchas */
+}
+
+/* 4. Estilos visuales para los <figure> y <figcaption> */
+.galeria figure {
+  margin: 0;
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: flex-end; /* Coloca el título (figcaption) en la parte inferior */
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.galeria figure:hover {
+  transform: translateY(-5px); /* Efecto elevación al pasar el ratón */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.galeria figcaption {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(
+    transparent,
+    rgba(0, 0, 0, 0.8)
+  ); /* Fondo degradado para que se lea bien el texto */
+  color: #ffffff;
+  font-family: sans-serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* 5. Imágenes/Colores de fondo de prueba para cada diapositiva */
+.diapositiva-1 {
+  background: url("https://picsum.photos/id/1015/400/300") center/cover
+    no-repeat;
+}
+.diapositiva-2 {
+  background: url("https://picsum.photos/id/1016/400/300") center/cover
+    no-repeat;
+}
+.diapositiva-3 {
+  background: url("https://picsum.photos/id/1018/400/300") center/cover
+    no-repeat;
+}
+.diapositiva-4 {
+  background: url("https://picsum.photos/id/1025/400/300") center/cover
+    no-repeat;
+}
+.diapositiva-5 {
+  background: url("https://picsum.photos/id/1035/400/300") center/cover
+    no-repeat;
+}

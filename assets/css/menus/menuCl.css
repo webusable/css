@@ -1,0 +1,209 @@
+/* ==========================================================
+   VARIABLES
+   ========================================================== */
+:root {
+    --color-fondo: #1f3a5f;
+    --color-sub: #17304f;
+    --color-texto: #fff;
+    --color-acento: #f2b705;
+    --alto-item: 3rem;
+}
+
+/* ==========================================================
+   BASE
+   ========================================================== */
+nav.principal {
+    background: var(--color-fondo);
+    color: var(--color-texto);
+    font-family: system-ui, sans-serif;
+}
+
+nav.principal ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav.principal a {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+nav.principal a:hover,
+nav.principal a:focus-visible {
+    background: rgb(255 255 255 / 0.1);
+    color: var(--color-acento);
+}
+
+/* ==========================================================
+   ELEMENTOS SOLO PARA LECTORES DE PANTALLA
+   (título h2 y checkbox: ocultos pero accesibles por teclado)
+   ========================================================== */
+.pechado,
+#icon-menu {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+/* ==========================================================
+   BOTÓN "MENÚ" (hamburguesa → X)
+   ========================================================== */
+.icon-menu {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    height: var(--alto-item);
+    padding: 0 1rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* Hamburguesa: una raya + dos sombras = tres rayas */
+.icon-menu::before {
+    content: "";
+    width: 1.25rem;
+    height: 2px;
+    background: currentColor;
+    box-shadow:
+        0 -6px currentColor,
+        0 6px currentColor;
+    transition:
+        box-shadow 0.2s,
+        transform 0.2s;
+}
+
+/* Al abrir: las dos rayas cruzadas forman una X */
+#icon-menu:checked + .icon-menu::before {
+    box-shadow: none;
+    transform: rotate(45deg);
+}
+
+#icon-menu:checked + .icon-menu::after {
+    content: "";
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    width: 1.25rem;
+    height: 2px;
+    margin-top: -1px;
+    background: currentColor;
+    transform: rotate(-45deg);
+}
+
+/* Foco visible con teclado (el checkbox oculto recibe el foco) */
+#icon-menu:focus-visible + .icon-menu {
+    outline: 3px solid var(--color-acento);
+    outline-offset: -3px;
+}
+
+/* ==========================================================
+   MÓVIL (por defecto): lista plegada
+   ========================================================== */
+nav.principal > ul {
+    display: none;
+}
+
+#icon-menu:checked ~ ul {
+    display: block;
+}
+
+nav.principal > ul > li > a {
+    padding: 0.85rem 1rem;
+    border-top: 1px solid rgb(255 255 255 / 0.15);
+}
+
+/* Submenú: siempre visible en móvil, con sangría */
+nav.principal ul ul {
+    background: var(--color-sub);
+}
+
+nav.principal ul ul a {
+    padding: 0.7rem 1rem 0.7rem 2rem;
+}
+
+/* ==========================================================
+   ESCRITORIO: barra horizontal + submenú desplegable
+   ========================================================== */
+@media (min-width: 48em) {
+    .icon-menu {
+        display: none;
+    }
+
+    /* Siempre visible y en horizontal (aunque el checkbox esté marcado) */
+    nav.principal > ul,
+    #icon-menu:checked ~ ul {
+        display: flex;
+    }
+
+    nav.principal > ul > li {
+        position: relative; /* ancla del submenú */
+    }
+
+    nav.principal > ul > li > a {
+        display: flex;
+        align-items: center;
+        height: var(--alto-item);
+        padding: 0 1.25rem;
+        border-top: 0;
+    }
+
+    /* Flechita en los elementos con submenú */
+    nav.principal > ul > li:has(> ul) > a::after {
+        content: "";
+        margin-left: 0.5rem;
+        border: 4px solid transparent;
+        border-top-color: currentColor;
+        border-bottom: 0;
+    }
+
+    /* Submenú flotante, oculto pero animable */
+    nav.principal ul ul {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: 12rem;
+        box-shadow: 0 8px 16px rgb(0 0 0 / 0.3);
+
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-0.5rem);
+        transition:
+            opacity 0.2s,
+            transform 0.2s,
+            visibility 0.2s;
+    }
+
+    nav.principal ul ul a {
+        padding: 0.75rem 1.25rem;
+    }
+
+    /* Mostrar con ratón y con teclado */
+    nav.principal li:hover > ul,
+    nav.principal li:focus-within > ul {
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+    }
+}
+
+/* ==========================================================
+   EXTRAS
+   ========================================================== */
+@media (prefers-reduced-motion: reduce) {
+    nav.principal ul ul,
+    .icon-menu::before {
+        transition: none;
+    }
+}
+
+/* Página actual: <a aria-current="page"> */
+nav.principal a[aria-current="page"] {
+    box-shadow: inset 0 -3px var(--color-acento);
+}

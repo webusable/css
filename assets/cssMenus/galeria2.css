@@ -1,0 +1,59 @@
+/* Si ya tienes estas variables en carrousel.css, no las repitas */
+:root {
+  --bg-img-galeria-1: url("https://cdn.pixabay.com/photo/2017/11/11/21/55/freedom-2940655_1280.jpg");
+  --bg-img-galeria-2: url("https://cdn.pixabay.com/photo/2016/11/13/12/52/kuala-lumpur-1820944_1280.jpg");
+  --bg-img-galeria-3: url("https://cdn.pixabay.com/photo/2018/05/09/22/51/blue-sky-3386409_1280.jpg");
+  --bg-img-galeria-4: url("https://cdn.pixabay.com/photo/2020/10/02/21/06/dome-5622133_1280.jpg");
+  --bg-img-galeria-5: url("https://cdn.pixabay.com/photo/2020/06/28/00/04/chicago-5347435_1280.jpg");
+}
+
+/* Contenedor flex: las tarjetas pasan a otra línea si no caben */
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Cada li crece para repartir el espacio, con un mínimo de 250px */
+.galeria li {
+  flex: 1 1 250px;
+}
+
+.galeria figure {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 4 / 3;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+}
+
+.galeria .diapositiva-1 {
+  background-image: var(--bg-img-galeria-1);
+}
+.galeria .diapositiva-2 {
+  background-image: var(--bg-img-galeria-2);
+}
+.galeria .diapositiva-3 {
+  background-image: var(--bg-img-galeria-3);
+}
+.galeria .diapositiva-4 {
+  background-image: var(--bg-img-galeria-4);
+}
+.galeria .diapositiva-5 {
+  background-image: var(--bg-img-galeria-5);
+}
+
+.galeria figcaption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 0.75rem 1rem;
+  color: #fff;
+  font-weight: 600;
+  text-align: left;
+  background: linear-gradient(transparent, rgb(0 0 0 / 0.7));
+}

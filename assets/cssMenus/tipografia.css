@@ -1,0 +1,144 @@
+/* ==========================================================================
+   SISTEMA DE TIPOGRAFÍA FLUIDA (Escala Modular con clamp)
+   Basado en buenas prácticas de accesibilidad y diseño responsive.
+   ========================================================================== */
+
+:root {
+  /* --- Familia Tipográfica y Propiedades Globales --- */
+  --font-sans:
+    system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, sans-serif;
+  --font-serif: Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono:
+    ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas, monospace;
+
+  /* --- Escala Modular Fluida (De ~320px a ~1240px de ancho) --- */
+  /* Texto pequeño / Leyendas / Footers / Badges (~12px a 14px) */
+  --font-size-sm: clamp(0.75rem, 0.72rem + 0.15vw, 0.875rem);
+
+  /* Texto de cuerpo base / Párrafos / Listas (~16px a 18px) */
+  --font-size-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+
+  /* H6 / Subtítulos secundarios / Subhead (~18px a 21px) */
+  --font-size-h6: clamp(1.125rem, 1.05rem + 0.35vw, 1.3125rem);
+
+  /* H5 / Encabezados de tarjetas o modales (~20px a 25px) */
+  --font-size-h5: clamp(1.25rem, 1.15rem + 0.5vw, 1.5625rem);
+
+  /* H4 / Subsecciones importantes (~23px a 30px) */
+  --font-size-h4: clamp(1.4375rem, 1.28rem + 0.78vw, 1.875rem);
+
+  /* H3 / Encabezados de sección (~26px a 36px) */
+  --font-size-h3: clamp(1.625rem, 1.4rem + 1.12vw, 2.25rem);
+
+  /* H2 / Títulos principales de sección (~30px a 44px) */
+  --font-size-h2: clamp(1.875rem, 1.55rem + 1.62vw, 2.75rem);
+
+  /* H1 / Título principal de la página (~36px a 56px) */
+  --font-size-h1: clamp(2.25rem, 1.75rem + 2.5vw, 3.5rem);
+
+  /* Display / Hero Titles (Para portadas impactantes) (~44px a 72px) */
+  --font-size-display: clamp(2.75rem, 2rem + 3.75vw, 4.5rem);
+
+  /* --- Interlineado (Line Heights) --- */
+  --line-height-heading: 1.15;
+  --line-height-body: 1.6;
+  --line-height-small: 1.4;
+}
+
+/* ==========================================================================
+   RESET Y APLICACIÓN GLOBAL DE TIPOGRAFÍA
+   ========================================================================== */
+
+html {
+  font-family: var(--font-sans);
+  font-size: 100%; /* Garantiza el respeto de las preferencias del usuario */
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-body);
+  color: #1a1a1a;
+}
+
+/* ==========================================================================
+   ESTILOS DE ELEMENTOS INDIVIDUALES
+   ========================================================================== */
+
+/* Párrafos, Listas y Bloques de Texto */
+p,
+ul,
+ol,
+dl,
+blockquote {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-body);
+  max-width: 68ch; /* Límite recomendado para óptima lectura (50–75 caracteres) */
+}
+
+/* Textos Pequeños y Leyendas */
+small,
+.text-small,
+figcaption,
+.caption {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-small);
+}
+
+/* Títulos y Encabezados (H1 - H6) */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.title {
+  line-height: var(--line-height-heading);
+  font-weight: 700;
+  text-wrap: balance; /* Evita palabras huérfanas en encabezados (CSS moderno) */
+}
+
+.display-title {
+  font-size: var(--font-size-display);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  letter-spacing: -0.01em;
+}
+h2 {
+  font-size: var(--font-size-h2);
+}
+h3 {
+  font-size: var(--font-size-h3);
+}
+h4 {
+  font-size: var(--font-size-h4);
+  font-weight: 600;
+}
+h5 {
+  font-size: var(--font-size-h5);
+  font-weight: 600;
+}
+h6 {
+  font-size: var(--font-size-h6);
+  font-weight: 600;
+}
+
+/* Código */
+code,
+pre,
+kbd {
+  font-family: var(--font-mono);
+  font-size: 0.9em; /* Relativo al tamaño de fuente padre */
+}
+
+/* Citas y Frases Destacadas */
+blockquote {
+  font-size: var(--font-size-h6);
+  font-style: italic;
+  line-height: 1.5;
+}
